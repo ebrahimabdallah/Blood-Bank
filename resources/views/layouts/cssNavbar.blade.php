@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .header{
+    width: 100%;
+ /*    height: 600px;
+    background-color: #000000;*/
+ margin-top: 30px;
+/* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(209,252,251,1) 0%, rgba(255,255,255,0.989233193277311) 76%); */
+ border-top-left-radius: 170px; 
+ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(223,255,254,1) 0%, rgba(255,255,255,0.989233193277311) 87%);
+}
+
+/* navbar*/
+.nav1{
+    
+      position: relative;
+      top: 30px;
+       background: #ffffff;
+       opacity: none;
+       height: 70px; 
+      border-radius: 30px;
+      box-shadow: 2px 2px 2px 2px rgb(248, 247, 247);
+       
+     }
+     .blod{float: left;
+        margin: 10px;
+        width: 40px;
+        height: 40px;
+        background-color: #ff0909;
+        border-radius: 20px 20px 0px 20px;
+     }
+     .nav1 label.logo{
+      /* color: rgb(247, 209, 42); */
+       font-size: 37px;
+       line-height: 70px;   
+       padding: 0 20px;
+       font-weight: 500;
+     }
+     .nav1 ul{
+       float: right;
+       margin-right: 20px;
+     }
+     .nav1 ul li{
+       display: inline-block;
+       line-height: 80px; 
+       margin: 0 2px;
+     }
+     .nav1 ul li a{
+       color: #1b1a1a;
+       font-size: 19px;
+       font-weight: 500;
+       text-decoration: none;
+       padding: 0px 15px;
+       padding-bottom: 5px;
+       border-radius: 3px;
+      /* text-transform: uppercase; */
+     }
+     .nav1 .element4 li .active {
+      /*color: #fc2929; */
+      border-bottom: 3px solid #00ca2c;
+      
+      transition: .3s ease;
+  } 
+     .nav1 a:hover{
+         color: #ff0909;
+      /*  border-bottom: 2px solid #fcc429; */
+       transition: .5s;
+     }
+     .aborder1 a{
+        
+        color: #fdd74e;
+         border-bottom: 2px solid #fcc429;
+        
+       
+     }
+     .nav1 .checkbtn{
+       font-size: 30px;
+       color: rgb(255, 4, 4);
+       float: right;
+       line-height: 80px;
+       margin-right: 40px;
+       cursor: pointer;
+       display: none;
+     }
+     #check{
+       display: none;
+     }
+     @media (max-width: 952px){
+     .nav1 label.logo{
+         font-size: 30px;
+         padding-left: 50px;
+       }
+       .nav1 ul li a{
+         font-size: 16px;
+       }
+     }
+     @media (max-width: 858px){
+     .nav1 .checkbtn{
+         display: block;
+       }
+     .nav1  ul{
+         position: fixed;
+         
+        /* height: 100vh; */
+         z-index: 1;
+         width: 100%;
+         background: #f7f1f1;
+         top: 150px;
+         left: -100%; 
+         text-align: center;
+         transition: all .5s;
+       }
+       .nav1 ul li{
+         display: block;
+         margin: 50px 0;
+         line-height: 30px;
+       }
+       .nav1 ul li a{
+         font-size: 20px;
+       }
+    
+     .nav1 #check:checked ~ ul{
+         left: 0;
+       }
+       
+     }
+     a:hover{
+      color: #f70a0a;
+    }
+    .div1{
+        margin-top: 50px;
+        text-align: center;
+    }
+    .div1 h1{
+        font-size: 40px;
+        font-weight: bold;
+        width: 63%;
+        margin: auto;
+margin-bottom: 30px;
+    }
+    .div1 p{
+        width: 70%;
+        margin: auto;
+      margin-bottom: 30px;
+    }
+    .donatenow{
+         height: 60px;
+         width: 230px; 
+         margin: auto;
+         background-color: #ffffff;
+padding: 10px;
+         border-radius: 20px 0px 20px 20px;
+         margin: 50px;
+    }
+.donatenow a{
+    
+  
+   
+   font-size: 28px;
+   
+   text-decoration: none;
+   text-align: center;
+   color: #b12424;
+   font-weight: 500;
+   
+
+}
+.donatenow i{
+    background: #a71313;
+    border-radius: 20px 0px 20px 20px;
+    font-size: 28px;
+    color: #ffffff;
+    padding: 5px;
+}
+.divimg{
+   margin: auto;  
+  margin-top:40px ;
+ 
+/* margin-left: 30%; */
+ 
+    width: 80%;
+    height: 405px;
+    background: #fd0505;
+    border-radius: 50% 50% 50% 0px;
+}
+.img1{
+   /* */
+    margin-top: -5px;
+    margin-left: 10px; 
+    
+    width: 100%;
+    height: 400px;
+    border-radius: 50% 50%  50%  0px;
+}
+.div2{
+  
+    width: 100%;
+    
+    background-color: #fd0505;
+    border-radius: 0px 120px  0px  0px;
+}
+
+.div3 h1{
+ color: #f7f1f1;
+ padding: 10px 30px;
+}
+.div3 p{
+    color: #f7f1f1;
+    width: 100%;
+    padding: 10px 30px;
+    font-size: 18px;
+}
+  .div4{
+     float: left;
+  }  
+.div5{
+ margin-top: 40px;
+ margin-bottom: 50px;
+}
+.div5 p{
+  width: 90%;
+  font-size: 19px;
+}
+.div7{
+ /* border: 1px solid rgb(255, 255, 255);
+  box-shadow: 1px 1px 1px 1px rgb(250, 250, 250); */
+
+  padding: 10px;
+  margin: 30px 5px;
+}
+.div7h{
+ margin: 10px 2px;
+}
+.div71{
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  padding: 3px;
+  font-size: 50px;
+  font-weight: bold;
+  color: #520266;
+  background-color: #de96f0;
+  border-radius: 30px 30px 30px 30px;
+}
+.div72{
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  padding: 3px;
+  font-size: 50px;
+  font-weight: bold;
+  color: #c0a403;
+  background-color: #f3ea66;
+  border-radius: 30px 30px 30px 30px;
+}
+.div73{
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  padding: 3px;
+  font-size: 50px;
+  font-weight: bold;
+  color: #00aca3;
+  background-color: #8afaeb;
+  border-radius: 30px 30px 30px 30px;
+}
+.div74{
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  padding: 3px;
+  font-size: 50px;
+  font-weight: bold;
+  color: #e90800;
+  background-color: #f58780;
+  border-radius: 30px 30px 30px 30px;
+}
+
+.div6{
+  width: 90%;
+  
+  border: 1px solid rgb(243, 242, 242);
+  padding: 0px;
+   margin: 23px; 
+}
+.div6 img{
+  width: 100%;
+  height: 300px;
+
+}
+.div6 h2,p{
+  margin: 5px;
+  padding-left: 5px;
+}
+
+
+
+    </style>
+
+    <script>
+      
+$(document).ready(function(){
+    $(".link1").click(function(){
+    $(".menu1 li a").removeClass("active");
+      $(this).addClass("active");
+      
+    });
+  });
+    </script>
+</body>
+</html>
