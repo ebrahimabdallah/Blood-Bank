@@ -35,7 +35,6 @@ Route::resource('Members',MemberController::class);
 Route::resource('Posts',PostsController::class);
 Route::resource('contacts',ContactController::class);
 
-Route::resource('Test',TestController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
