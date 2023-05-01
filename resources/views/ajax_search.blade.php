@@ -3,7 +3,9 @@
 
 @include('layouts.navbar')
     <center>
-  
+      
+      
+          </form> --}} 
     <br>
         <form action="#" method="GET">
           @csrf
@@ -19,7 +21,7 @@
   
             @include('flash::message')
            
-            <div class="table-responsive" id="ajax_search_result">
+            <div class="table-responsive">
                 <table class="table table-bordered" style="width: 95% " >
        <thead>
          <tr class="table-success table-striped">
@@ -88,25 +90,8 @@
          @endforeach
        </tbody>
      </table>
-     {{-- paginate --}}
-     @include('layouts.csspaginate')
-     
-     <div class="pagination-container">
-      <ul class="pagination">
-          @for ($i = 1; $i <= $record->lastPage(); $i++)
-              @if ($i == $record->currentPage())
-                  <li class="page-item active"><span class="page-link">page {{ $i }} Current</span></li>
-              @else
-                  <li class="page-item"><a href="{{ $record->appends(['search' => request()->query('search')])->url($i) }}" class="page-link">{{ $i }} </a></li>
-              @endif
-          @endfor
-      </ul>
-  </div>
-  {{-- end paginate --}}
-     {{-- {{ $record->links() }} --}}
-    </div>
+   </div>
    <div class="text-center">
      <a href="{{ url('Donation/create') }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i></a> 
        </div>
  </div>
- 

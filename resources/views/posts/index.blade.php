@@ -5,47 +5,100 @@
 @include('AppChart.css')
 
 <center>
-    <div style="width: 60%">
-        <h4 style="color: firebrick">in my website we have a types of a blood type <br> available blood are this ..</h4>
+  <div style="color: darkblue"><p>A BloodType Is Available</p></div>
+  <br>
+  <div class="container" style="width: 80%">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body" style="color: crimson">
+                    <div class="icon"><i class="fas fa-tint"></i></div>
+                    <div style="display:flex; justify-content: space-between;">
+                        <div>A</div>
+                        <div>{{$Donation->where('bloode_type', 'A')->count()}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body" style="color: crimson">
+                    <div class="icon"><i class="fas fa-tint"></i></div>
+                    <div style="display:flex; justify-content: space-between;">
+                        <div>AB</div>
+                        <div>{{$Donation->where('bloode_type', 'AB')->count()}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body" style="color: crimson">
+                    <div class="icon"><i class="fas fa-tint"></i></div>
+                    <div style="display:flex; justify-content: space-between;">
+                        <div>B</div>
+                        <div>{{$Donation->where('bloode_type', 'B')->count()}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <body> 
-        <div class="row mb-2" style="width: 70%"> 
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body" style="color: crimson">
+                    <div class="icon"><i class="fas fa-tint"></i></div>
+                    <div style="display:flex; justify-content: space-between;">
+                        <div>O+</div>
+                        <div>{{$Donation->where('bloode_type', 'O+')->count()}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body" style="color: crimson">
+                    <div class="icon"><i class="fas fa-tint"></i></div>
+                    <div style="display:flex; justify-content: space-between;">
+                        <div>O-</div>
+                        <div>{{$Donation->where('bloode_type', 'O-')->count()}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body" style="color: crimson">
+                    <div class="icon"><i class="fas fa-tint"></i></div>
+                    <div style="display:flex; justify-content: space-between;">
+                        <div>AB-</div>
+                        <div>{{$Donation->where('bloode_type', 'AB-')->count()}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+			{{-- @php
 
-  <div class="box" class="icon">
-	<div> <i class="fas fa-tint"></i></div>
+		function calculateDonationNeeded($available, $donationCount) {
+			$need = $available - $donationCount;
+			return $need;
+		}
 
-	<div> {{$Donation->where('bloode_type', 'A')->count()}}  A</div>
-  </div> 
-   
-        
+		$available = 100;
+		$donationCount =$Donation->count() ;
+		$need = calculateDonationNeeded($available, $donationCount);
+		// echo $need;
 
-  <div class="box" class="icon">
-	<div> <i class="fas fa-tint"></i></div>
-	<div> {{$Donation->where('bloode_type', 'AB')->count()}}  AB</div>
-  </div>
-
-<div class="box" class="icon">
-	<div ><i class="fas fa-tint"></i></div>
-	<div> {{$Donation->where('bloode_type', 'B')->count()}}  B</div>
-  </div>
-  <div class="box" class="icon">
-	<div><i class="fas fa-tint"></i></div>
-	<div> {{$Donation->where('bloode_type', 'O')->count()}}  O+</div>
-  </div>  
-
-  <div class="box" class="icon">
-	<div ><i class="fas fa-tint"></i></div>
-	<div> {{$Donation->where('bloode_type', 'O-')->count()}}  O-</div>
-  </div>
-
-<div class="box" class="icon">
-	<div ><i class="fas fa-tint"></i></div>
-	<div> {{$Donation->where('bloode_type', 'AB-')->count()}}  AB-</div>
-  </div>
-    <br>
+		@endphp
+			  <div>{{$need}} available</div>
+			</div>
+		  </div>
+		</div> 
 <br><br><br>
         <hr>
-        </div>
+        </div> --}}
 </center>
 <center>
     @include('posts.css')

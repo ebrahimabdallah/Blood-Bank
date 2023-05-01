@@ -1,0 +1,65 @@
+//تعريف حدث (Event) لأي تغيير في قائمة الطلبات:
+
+namespace App\Events;
+
+use App\Models\Donation_Request;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Queue\SerializesModels;
+
+class DonationRequestUpdated
+{
+    use Dispatchable, SerializesModels;
+
+    public $donationRequest;
+
+    public function __construct(Donation_Request $donationRequest)
+    {
+        $this->donationRequest = $donationRequest;
+    }
+}
+
+//تعريف مستمع (Listener) لحدث التبرع المحدث:
+
+namespace App\Listeners;
+
+use App\Events\DonationRequestUpdated;
+use Illuminate\Contracts\Queue\ShouldQueue;
+
+class NotifyUsersOfDonationRequestUpdate implements ShouldQueue
+{
+    public function handle(DonationRequestUpdated $event)
+    {
+        // إرسال إشعارات إلى المتصفحين حول أي تغيير في الطلبات
+    }
+}
+
+
+//تسجيل المستمع في ملف EventServiceProvider:
+
+
+namespace App\Providers;
+
+use App\Events\DonationRequestUpdated;
+use App\Listeners\NotifyUsersOfDonationRequestUpdate;
+use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+
+class EventServiceProvider extends ServiceProvider
+{
+    protected $listen = [
+        DonationRequestUpdated::class => [
+            NotifyUsersOfDonationRequestUpdate::class,
+        ],
+    ];
+}
+
+//عند القيام بأي تغيير في قائمة الطلبات، يتم إطلاق حدث DonationRequestUpdated
+
+use App\Events\DonationRequestUpdated;
+use App\Models\Donation_Request;
+
+// تحديث قائمة الطلبات
+$donationRequest = Donation_Request::find($id);
+$donationRequest->update($request->all());
+
+// إطلاق حدث DonationRequestUpdated لإخطار المستمعين
+event(new DonationRequestUpdated($donationRequest));

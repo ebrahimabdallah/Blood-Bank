@@ -15,10 +15,8 @@ class DonorController extends Controller
    */
   public function index()
   {
-    $record=Donor::paginate(20);
-  
-   return view('donor.index',compact('record')); 
-
+    $Donors=Donor::paginate(20);  
+    return view('donor.index',compact('Donors'));  
   }
 
   /**
@@ -28,7 +26,7 @@ class DonorController extends Controller
    */
   public function create()
   {
-    return view('donor.create');
+   return view('donor.create'); 
   }
 
   /**
@@ -38,9 +36,9 @@ class DonorController extends Controller
    */
   public function store(Request $request)
   {
-    $record=Donor::create($request->all());
-    // flash('تمت اضافه المستخدم بنجاح!')->success();
-     return redirect('Clients');
+    $Donors=Donor::create($request->all());
+      return redirect()->back();
+
   }
 
   /**
@@ -62,7 +60,8 @@ class DonorController extends Controller
    */
   public function edit($id)
   {
-    
+    $Donors=Donor::findOrFail($id);
+    return view('donor.Edit',compact('Donors'));
   }
 
   /**
@@ -71,8 +70,13 @@ class DonorController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function update($id)
+  public function update($id,$request)
   {
+    flash()->success('Your order information has been updated successfully, thank you');
+
+   $Donors=Donor::findOrFail($id);
+   $Donors->Update($request->all());
+   return redirect('donor');
     
   }
 
@@ -84,9 +88,13 @@ class DonorController extends Controller
    */
   public function destroy($id)
   {
-    //
+    $Donors=Donor::findOrFail($id);
+    $Donors->delete();
+    flash()->warning('The students have been successfully deleted');
+    
+    return redirect('donor');
   }
-
+  
 }
 
 ?>

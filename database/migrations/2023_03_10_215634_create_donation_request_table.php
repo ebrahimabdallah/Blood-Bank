@@ -16,7 +16,9 @@ class CreateDonationRequestTable extends Migration {
 			$table->enum('bloode_type', array('O', 'AB', 'A', 'B', 'A-', 'B-', 'AB-', 'O-'));
 			$table->integer('patient_age');
 			$table->integer('bages_num');
+			$table->integer('The_cost_of_the_operation');
 			$table->string('address');
+			//The cost of the operation
 		});
 	}
 

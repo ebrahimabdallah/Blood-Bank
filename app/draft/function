@@ -1,0 +1,10 @@
+{{-- @php
+			  function calculateDonationNeeded($available, $donationCount) {
+				  $need = $available - $donationCount;
+				  return $need;
+			  }
+			  $available = 100;
+			  $donationCount =$sum = DB::table('donation_request')->sum('bages_num') ;
+			  $need = calculateDonationNeeded($available, $donationCount);
+			  // echo $need;
+			  @endphp --}}

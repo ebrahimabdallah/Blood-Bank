@@ -27,12 +27,18 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+    
+        },
+        "files": [
+            "App/Helper/json.php"
+        ]
     },
+
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
         }
+        
     },
     "scripts": {
         "post-autoload-dump": [

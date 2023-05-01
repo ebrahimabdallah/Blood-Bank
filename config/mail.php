@@ -101,7 +101,7 @@ return [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
-
+    'from' => ['address' => 'hemareda122@gmail.com', 'name' => 'app_blood'],
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings

@@ -1,0 +1,65 @@
+هذا الكود يستخدم نمط التصميم Singleton pattern 
+
+لإنشاء كائن واحد فقط من فئة DonationCalculator، ويستخدمه لحساب عدد أكياس الدم المتاحة.
+
+توجد فئة DonationCalculator التي تحتوي على دالة 
+
+calculateDonationNeeded التي تحسب عدد الأكياس المتاحة للتبرع بالدم بناءً على عدد
+ الأكياس التي تم طلبها من قاعدة البيانات. 
+يتم استدعاء هذه الدالة باستخدام كائن DonationCalculator الوحيد الموجود في النظام.
+
+يتم استخدام نمط التصميم 
+
+
+Singleton pattern في الفئة DonationCalculator لضمان وجود كائن واحد فقط من الفئة في النظام. وهذا يتم عن طريق إنشاء متغير خاص بكائن الفئة private static $instance = null ودالة خاصة لإنشاء وإرجاع هذا الكائن public static function getInstance(). بمجرد أن يتم إنشاء الكائن مرة واحدة، يتم إعادة استخدام نفس الكائن في جميع المرات التالية التي يتم فيها استدعاء الدالة getInstance.
+
+في الكود المعطى، يتم استخدام كائن 
+
+DonationCalculator لحساب عدد الأكياس المتاحة للتبرع بالدم باستخدام 
+DB::table('donation_request')->sum('bages_num') لحساب عدد الأكياس التي تم طلبها من قاعدة البيانات.
+ يتم حساب الأكياس المتاحة باستخدام دالة calculateDonationNeeded 
+ التي تقوم بطرح عدد الأكياس التي تم طلبها من العدد الأقصى للأكياس المتاحة (100)
+ ، وترجع الفرق بينهما كنتيجة. يتم طباعة النتيجة باستخدام echo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ @php
+// $calculator = DonationCalculator::getInstance();
+// $need = $calculator->calculateDonationNeeded(DB::table('donation_request')->sum('bages_num'));
+// // echo $need . " available bags";
+
+// class DonationCalculator
+// {
+//   private static $instance = null;
+//   private $available = 100;
+
+//   private function __construct() {}
+
+//   public static function getInstance() {
+//     if (self::$instance == null) {
+//       self::$instance = new DonationCalculator();
+//     }
+//     return self::$instance;
+//   }
+
+//   public function calculateDonationNeeded($donationCount) {
+//     $need = $this->available - $donationCount;
+// 	return $need;
+//   }
+// }
+    @endphp 

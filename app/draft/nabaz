@@ -1,0 +1,53 @@
+	 <div class="row mb-2" style="width: 80%">
+		 <div class="box">
+			 <div class="icon">
+				<i class="fas fa-user"></i>
+			</div> 
+			<div>
+				{{$User->count()}} Users</div>
+		 </div>
+
+  <div class="box">
+	<div class="icon"><i class="fas fa-stethoscope"></i></div>
+	<div>{{$Members->count()}} Members</div>
+  </div>
+
+{{-- avaliable donation --}}
+  <div class="box">
+	<div class="icon"><i class="fas fa-exclamation-triangle"></i></div>
+	@php
+
+function calculateDonationNeeded($available, $donationCount) {
+    $need = $available - $donationCount;
+    return $need;
+}
+
+$available = 100;
+$donationCount =$Donation->count() ;
+$need = calculateDonationNeeded($available, $donationCount);
+// echo $need;
+
+   @endphp
+	<div>{{$need}} avaliable</div>
+  </div>
+{{-- end avaliable donation --}}
+
+
+<div class="box">
+	<div class="icon"><i class="fas fa-tint"></i></div>
+	<div>{{$Donation->count()}} Donation</div>
+  </div>
+
+
+  <div class="box">
+	<div class="icon"><i class="fas fa-edit"></i></div>
+	<div>{{$Posts->count()}} Posts</div>
+  </div>
+</div>
+<div class="box">
+	<div class="icon"><i class="fas fa-flask"></i></div>
+	<div>{{$Lab->count()}} Lab</div>
+  </div>
+  
+</div>
+ <br><br><br> 

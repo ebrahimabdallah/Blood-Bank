@@ -1,0 +1,11 @@
+	{{-- <div class="col-md-3">
+			<div class="card mb-4">
+			  <div class="card-body" style="color: crimson">
+				<div class="icon"><i class="fas fa-stethoscope"></i></div>
+				<div> A bags_Request  {{$sum = DB::table('donation_request')->sum('bages_num')}}</div>					
+		  
+
+		</div>
+	  </div>
+	</div> --}}
+

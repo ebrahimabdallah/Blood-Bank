@@ -38,7 +38,7 @@
         <h1>Donate blood<br> ,Save Life!</h1>
         
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi inventore suscipit impedit fugiat quisquam consectetur voluptatum ipsam fugit, et est! </p>
-       <div class="donatenow"><a class="" href="{{Url('Donation/create')}}" >Requested <i class="fa-solid fa-arrow-right"></i></a></div>
+       <div class="donatenow"><a class="" href="{{Url('donor')}}" >Requested <i class="fa-solid fa-arrow-right"></i></a></div>
       </div>
       <div class=" col-sm">
         <div class="divimg">
@@ -63,7 +63,7 @@
  </section>  <!--end -->
 
   
-     <section class="container div5">
+     <section class="container div5" >
      <h1>Donation Process</h1>
      <p>Our app also makes it easy to search for blood donors in your area. You can search for donors based on their blood type, location, and availability. You can also create a profile and list yourself as a donor, making it easier for people to contact you when they need blood.</p>
      </section> <!--end -->
@@ -111,7 +111,7 @@
       <section class=" container  ">
         <div class="row">
        <div class="col-sm div6">
-        <div><img src="images.png"></div>
+        <div><img src="images/WhatsApp Image 2023-04-09 at 2.09.11 AM (1).jpeg"></div>
         <div><h2>Donation Process</h2>
         <p>Our app also makes it easy to search for blood donors in your area.</p>
         </div>
@@ -132,6 +132,11 @@
       </section><!--end -->
 
 
+{{-- --------------------------------------------------------------------- --}}
+  
+
+
+@include('home_screen.footer')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   
 

@@ -1,9 +1,13 @@
 <?php 
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Validator;
 
 use App\Models\Lab;
+// use Dotenv\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Validated;
+use Spatie\FlareClient\Enums\MessageLevels;
 
 class LabController extends Controller 
 {
@@ -36,9 +40,49 @@ class LabController extends Controller
    */
   public function store(Request $request)
   {
+    $rules = $this ->getRules();
+    $Messages=$this ->getMessage();
+
+    $validator = Validator::make($request->all(),$rules,$Messages);
+
+    
+    if($validator->fails())
+       {
+        return redirect()->back()->withErrors($validator)->withInput($request->all());    
+      }
+
     $Labs=Lab::create($request->all());
-        return redirect('Labs');  
+    return redirect()->back();  
+
+
+
   }
+   public function getRules()
+   {
+    return $rules=[
+      'Name'=>'required',
+      'phone'=>'required|unique:Labs,phone',
+      'address'=>'required'
+    ];
+   }
+
+   public function getMessage()
+   {
+    return $Messages=[
+      'Name.required'=>'Please enter your name Lab',
+      'phone.required'=>'Please enter your phone as Lab',
+      'phone.unique'=>'This number is aready exists',
+      'address.required'=>'Please enter your adderss as lab'
+    ];
+   }
+
+
+
+
+
+
+  
+
 
   /**
    * Display the specified resource.

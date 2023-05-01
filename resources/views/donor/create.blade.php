@@ -25,15 +25,15 @@
             @csrf
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <input type="name" class="form-control-lg" placeholder="Enter Your name" name="patient_name" value="{{ old('patient_name') }}">
-                    @error('patient_name')
+                    <input type="name" class="form-control-lg" placeholder="Enter Your Name" name="name" value="{{ old('name') }}">
+                    @error('name')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 
                 <br>
                 <div class="col-md-6 col-sm-12">
-                    <input type="email" class="form-control-lg" placeholder="Enter email" name="email" value="{{ old('email') }}">
+                    <input type="email" class="form-control-lg" placeholder="Enter Your email" name="email" value="{{ old('email') }}">
                     @error('email')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
@@ -51,8 +51,8 @@
                 
                 <br>
                 <div class="col-md-6 col-sm-12">
-                    <input type="string" class="form-control-lg" placeholder="Enter phone" name="patients_phone" value="{{ old('patients_phone') }}">
-                    @error('patients_phone')
+                    <input type="string" class="form-control-lg" placeholder="Enter phone" name="phone" value="{{ old('phone') }}">
+                    @error('phone')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
@@ -61,16 +61,16 @@
             <br>
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <input type="enum" class="form-control-lg" placeholder="Enter blood type" name="bloode_type" value="{{ old('bloode_type') }}">
-                    @error('bloode_type')
+                    <input type="enum" class="form-control-lg" placeholder="Enter blood type" name="Birth_data" value="{{ old('Birth_data') }}">
+                    @error('Birth_data')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 
                 <br>
                 <div class="col-md-6 col-sm-12">
-                    <input type="string" class="form-control-lg" placeholder="Enter hospital name" name="hospital_name" value="{{ old('hospital_name') }}">
-                    @error('hospital_name')
+                    <input type="string" class="form-control-lg" placeholder="Enter hospital name" name="blood" value="{{ old('blood') }}">
+                    @error('blood')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
@@ -79,8 +79,8 @@
             <br>
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <input type="number" class="form-control-lg" placeholder="Enter patient age" name="patient_age" value="{{ old('patient_age') }}">
-                    @error('patient_age')
+                    <input type="number" class="form-control-lg" placeholder="Enter patient age" name="age" value="{{ old('age') }}">
+                    @error('age')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
