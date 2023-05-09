@@ -29,20 +29,35 @@ Route::get('/', function () {
 });
 Route::get('/', function () {
     return view('welcome');
-
-    
 });
-define('pagination_count',2);
+
+
+
+define('pagination_count',6);
 Route::resource('Main',MainController::class);
 Route::resource('Donation',Donation_RequestController::class);
-Route::resource('City',CityController::class);
+Route::resource('donor', DonorController::class);
+
+
+// Route::resource('Donation', Donation_RequestController::class)->only(['edit','destroy'])
+// ->middleware('CheckUser');
+
+
+// Route::resource('donor', DonorController::class)->only(['edit','destroy'])
+// ->middleware('CheckUser');
+
 Route::resource('Contact',ContactController::class);
 Route::resource('Labs',LabController::class);
 Route::resource('Members',MemberController::class);
 Route::resource('Posts',PostsController::class);
 Route::resource('contacts',ContactController::class);
-Route::resource('donor', DonorController::class);
-Route::post('/ajax_search',[Donation_RequestController::class,'ajax_search'])->name('ajax_search_job');
+
+
+Route::middleware(['CheckUser'])->group(function () {
+    Route::resource('Donation', Donation_RequestController::class)->only(['edit', 'destroy']);
+    Route::resource('donor', DonorController::class)->only(['edit', 'destroy']);
+});
+
 
 Auth::routes();
 

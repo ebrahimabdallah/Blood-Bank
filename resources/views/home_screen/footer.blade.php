@@ -42,7 +42,7 @@
 
     </div>
 <hr>
-    <div class="credit"> manage_System Ebrahim Reda</div>
+    <div class="credit"> </div>
 
 </section>
 

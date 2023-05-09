@@ -7,7 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <style>
+<style>
+    
+
+
 .footer {
 
     background-color:rgb(233, 19, 19);

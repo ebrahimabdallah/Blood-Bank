@@ -21,14 +21,17 @@
         </label>
         <label class="logo "><div class="blod"></div>Blood Deft</label>
         <ul class="element4 menu1">
-           <li><a  class="link1 active" href="{{Url('Main')}}">Home</a></li>
-               
+          <li><a  class="link1 active" href="{{Url('Main')}}">Home</a></li>
           <li><a class="link1" href="{{Url('Posts')}}">About</a></li>
-          <li><a class="link1" href="{{Url('Labs')}}">Labs</a></li>
           <li><a class="link1" href="{{Url('Donation')}}">Requested</a></li>
-          <li><a class="link1" href="{{Url('Members')}}">Members</a></li>
-          <li><a class="link1" href="{{Url('Contact')}}">glimpse</a></li>
-          <li><a class="link1" href="{{Url('register')}}">Log out</a></li> 
+          <li><a class="link1" href="{{Url('donor')}}">Donors</a></li>
+          {{-- <li><a class="link1" href="{{Url('Members')}}">Members</a></li> --}}
+          <li><a class="link1" href="{{Url('contacts')}}">glimpse</a></li>
+          {{-- <li><a class="link1" href="{{Url('register')}}">Log out</a></li> --}}
+          {{-- <span>{{ Auth::user()->name }}<a class="link1" href="{{Url('register')}}"</span>           --}}
+          {{-- <span class="logo"><i class="fas fa-user"></i></span> --}}
+          <li><span><a class="link1" href="{{ url('register') }}">{{ Auth::user()->name }}</a></span>
+        </li>
           <li></li>
         </ul>
       </nav>  <!--   end nav-->

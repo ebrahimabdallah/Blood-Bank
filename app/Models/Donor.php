@@ -14,6 +14,11 @@ class Donor extends Model
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
-    protected $fillable = array('name', 'phone', 'email', 'address', 'BloodType', 'age', 'LastDontation');
+    protected $fillable = array('name', 'phone', 'email', 'address', 
+    'BloodType', 'age', 'LastDontation');
 
+public function getPermissionsAttribute($permissions)
+{
+    return json_decode($permissions,true);
+}
 }

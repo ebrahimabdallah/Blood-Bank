@@ -10,6 +10,7 @@
 <body>
     <style>
         .box {
+          
             border: 3px solid rgb(255, 239, 17);
             border-radius: 32px;
             padding: 10px;

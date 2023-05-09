@@ -1,7 +1,7 @@
 @extends('layouts.app')
-{{-- @include('layouts.navbar')
-@include('layouts.cssNavbar') --}}
-
+ {{-- @include('layouts.navbar')
+@include('layouts.cssNavbar')  --}}
+{{-- @include('home_screen.home') --}}
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -23,5 +23,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> 
 @endsection

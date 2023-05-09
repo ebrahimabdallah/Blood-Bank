@@ -14,7 +14,6 @@ class CreatePostsTable extends Migration {
 			$table->string('title');
 			$table->date('created');
 			$table->text('content');
-			$table->boolean('react');
 
 		});
 	}

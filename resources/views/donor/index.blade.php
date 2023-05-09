@@ -1,25 +1,38 @@
+{{-- <?php
+        use Carbon\Carbon;
 
-
+?> --}}
 @include('layouts.navbar')
-    <center>
+<center>
         <div>
         
             @include('flash::message')
-           
+          <br>
+            <form action="#" method="GET">
+              @csrf
+              <div class="input-group" style="width: 70%">
+                    <input type="text" name="search" class="form-control" placeholder="Search..." >
+                    <button type="submit" class="btn btn-primary">Search</button>
+    
+                
+                </div>
+            </form>
+            <br>
+       
             <div class="table-responsive">
-                <table class="table table-bordered" style="width: 95% " >
+                <table class="table table-bordered" style="width: 70% " >
        <thead>
          <tr class="table-success table-striped">
-           <th>#</th>
-           <th>name</th>
+           {{-- <th>#</th> --}}
+           <th>Name</th>
            <th>Phone</th>
-           <th>Age</th>
+           {{-- <th>Age</th> --}}
            <th>BloodType</th>
-           <th>email</th>
-           <th>address</th>
-           <th>LastDontation</th>
+           {{-- <th>email</th> --}}
+           <th>Address</th>
+           {{-- <th>LastDontation</th> --}}
+           <th>The Stutas</th>
 
-          
            <th>Edit</th>
            <th>Delete</th>
          </tr>
@@ -27,52 +40,61 @@
        <tbody>
          @foreach($Donors as $Donor)
          <tr>
-           <td>{{ $Donor->iteration }}</td>
+           {{-- <td>{{ $Donor->iteration }}</td> --}}
            <td>{{ $Donor->name }}</td>
            <td>{{ $Donor->phone}}</td>
-           <td>{{ $Donor->age}}</td>
+           {{-- <td>{{ $Donor->age}}</td> --}}
            <td>{{ $Donor->BloodType }}</td>
-           <td>{{ $Donor->email }}</td>
+           {{-- <td>{{ $Donor->email }}</td> --}}
            <td>{{ $Donor->address }}</td>
-           <td>{{ $Donor->LastDontation }}</td>
-
-{{-- 
-      
+           {{-- <td>{{ $Donor->LastDontation }}</td> --}}
+          
            <td>
-             @if($records->status == 'active')
-             <form action="{{ route('Donor.update', $record->id) }}" method="post">
-               @csrf
-               @method('PUT')
-               <input type="hidden" name="status" value="inactive">
-               <button type="submit" class="btn btn-success btn-xs">{{ $records->status}}</button>
-             </form>
-             @else
-             <form action="{{ route('Donor.update', $records->id) }}" method="post">
-               @csrf
-               @method('PUT')
-               <input type="hidden" name="status" value="active">
-               <button type="submit" class="btn btn-danger btn-xs">{{ $records->status}}</button>
-             </form>
-             @endif
-           </td>
+            <?php
+            $current_time = time(); // الوقت الحالي
+            $last_donation = strtotime($Donor->LastDontation); // آخر موعد للتبرع
+            $days_since_donation = floor(($current_time - $last_donation) / (60 * 60 * 24)); // الفرق بين التواريخ بالأيام
+            
+            if ($days_since_donation > 80 && $Donor->age < 40 ) {
+                echo "متاح للتبرع";
+            } else {
+                echo "غير متاح للتبرع ";
+            }
+            ?>
+        </td>
            <td>
-             <a href="{{ route('Donor.edit', $records->id) }}" class="btn btn-xs">
+             <a href="{{ route('donor.edit', $Donor->id) }}" class="btn btn-xs">
                <i class="fa fa-edit"></i>
              </a>
            </td>
            <td>
-             <form action="{{ route('Donor.destroy', $records->id) }}" method="post">
+             <form action="{{ route('donor.destroy', $Donor->id) }}" method="post">
                @csrf
                @method('DELETE')
                <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
              </form>
            </td>
-         </tr>--}}
+         </tr>
          @endforeach 
        </tbody>
      </table>
-   </div>
-   <div class="text-center">
-     <a href="{{ url('Donor/create') }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i></a>
+    {{-- paginate --}}
+    @include('layouts.csspaginate')
+     
+    <div class="pagination-container">
+     <ul class="pagination">                           
+         @for ($i = 1; $i <= $Donors->lastPage(); $i++)
+             @if ($i == $Donors->currentPage())
+                 <li class="page-item active"><span class="page-link">page {{ $i}} Current</span></li>
+             @else
+                 <li class="page-item"><a href="{{ $Donors->appends(['search' => request()->query('search')])->url($i) }}" class="page-link">{{ $i }} </a></li>
+             @endif
+         @endfor
+     </ul>
+ </div>
+ {{-- end paginate --}} 
+    </div>
+    <div class="text-center">
+     <a href="{{ url('donor/create') }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i></a>
    </div>
  </div>

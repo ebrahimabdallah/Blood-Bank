@@ -17,6 +17,7 @@
           </div>
                     
 </center>
+
 <hr>
 
 <div>
@@ -61,7 +62,19 @@
             <br>
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <input type="enum" class="form-control-lg" placeholder="Enter blood type" name="bloode_type" value="{{ old('bloode_type') }}">
+                    {{-- <input type="enum" class="form-control-lg" placeholder="Enter blood type" name="bloode_type" value="{{ old('bloode_type') }}"> --}}
+                     
+          <select class="form-control-lg" style="width: 46%" placeholder="select bloodtype" name="bloode_type" value="{{ old('bloode_type') }}">
+            <option value="O">O</option>
+            <option value="O-">O-</option>
+            <option value="AB">AB</option>
+            <option value="AB-">AB-</option>
+            <option value="B">B</option>
+            <option value="B-">B-</option>
+            <option value="A-">A-</option>
+            <option value="A">A</option>
+          </select>
+
                     @error('bloode_type')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
@@ -86,8 +99,26 @@
                 </div>
                 <br>
                 <div class="col-md-6 col-sm-12">
-                    <input type="string" class="form-control-lg" placeholder="Enter address" name="address" value="{{ old('address') }}">
-                    @error('address')
+                    <select class="form-control-lg" style="width: 46%" placeholder="select address" name="address" value="{{ old('address') }}">
+                        <option value="cairo">cairo</option>
+                        <option value="banha">banha</option>
+                        <option value="Dakahlia">mansoura</option>
+                        <option value="Assuit">Assuit</option>
+                        <option value="Damietta">Damietta</option>
+                        <option value="Kafr El Sheikh">Kafr El Sheikh</option>
+                        <option value="Ismailia">Ismailia</option>
+                        <option value="Beni Suef">Beni Suef</option>
+                        <option value="Minya">Minya</option>
+                        <option value="Qena">Qena</option>
+                        <option value="Luxor">Luxor</option>
+                        <option value="Matrouh">Matrouh</option>
+                        <option value="North Red See">North Red See</option>
+                        <option value="Sohag">Sohag</option>
+                      </select>
+                  
+                  
+                  
+                        @error('address')
                         <div class="text-danger ">{{ $message }}</div>
                     @enderror
                 </div>
@@ -95,7 +126,11 @@
 
             <br><br>
             <div>
-                <button type="submit" style="width: 17%" class="btn btn-primary">Create</button>
+        
+                <button
+                 type="submit" style="width: 17%; background-color: #007bff; color: #fff;"
+                  class="btn btn-primary" 
+                onclick="this.style.backgroundColor='red'">Create</button>            
             </div>  
         </form>
     </div>

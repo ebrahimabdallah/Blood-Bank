@@ -18,6 +18,8 @@ class CreateDonorsTable extends Migration {
 			$table->enum('BloodType', array('O', 'AB', 'A', 'B', 'A-', 'B-', 'AB-', 'O-'));
 			$table->tinyInteger('age');
 			$table->date('LastDontation');
+			$table->date('CuurentTime');
+
 		});
 	}
 
