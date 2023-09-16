@@ -12,9 +12,6 @@ class Posts extends Model
     protected $fillable = array('created','title', 'image', 'content', 'react');
 
    
-    public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
-    {
-        return $this->belongsTo('App\Models\Category');
-    }
+
 
 }
