@@ -11,10 +11,7 @@ class Governorate extends Model
     public $timestamps = true;
     protected $fillable = array('name');
 
-    public function City()
-    {
-        return $this->hasMany('App\Models\City');
-    }
+    
 
      
 
